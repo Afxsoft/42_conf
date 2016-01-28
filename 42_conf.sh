@@ -34,9 +34,9 @@ echo "               42 mac conf by Afxsoft           "
 echo "          ******************************        "
 
 echo ""
-curl -L http://install.ohmyz.shi &> /dev/null
+curl -L http://install.ohmyz.sh &> /dev/null
 if [ $? == 0 ]; then
-		curl -L http://install.ohmyz.sh &> /dev/null | sh &> /dev/null
+		curl -L http://install.ohmyz.sh &> /dev/null | sh &> /dev/null &&
 		echox ${C_WHITE} "- Oh my Zsh" ${C_GREEN} "OK [✓] "
 	else
 		echox ${C_WHITE} "- Oh my Zsh" ${C_RED} "FAIL [X]"
@@ -63,9 +63,15 @@ echo ""
 defaults -currentHost write com.apple.screensaver askForPassword -int 1  &> /dev/null &&
 echox ${C_WHITE} "- Passeword require" ${C_GREEN} " OK [✓]"
 echo ""
-#open -n /Applications/iTerm\ 2.app && exit
 echox ${C_WHITE} " TODO" ${C_GREEN} "OK [✓]"
 echo ""
 echo "            =======  COMPLETED 😎  =====         "
 echo "             https://github.com/Afxsoft"
 echo "            ***************************         "
+echo ${C_WHITE}
+read -p " Do you want to reboot Iterm2 (y/n)?" -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	open -n /Applications/iTerm\ 2.app && exit
+fi
